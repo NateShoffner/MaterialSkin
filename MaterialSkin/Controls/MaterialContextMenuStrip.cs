@@ -89,6 +89,17 @@ namespace MaterialSkin.Controls
 
             return defaultDropDown;
         }
+
+        public bool HasDropDown
+        {
+            get
+            {
+
+                var baseType = GetType().BaseType;
+                var prop = baseType.GetProperty("HasDropDown");
+                return bool.Parse(prop.GetValue(this, null).ToString());
+            }
+        }
     }
 
     internal class MaterialToolStripRender : ToolStripProfessionalRenderer, IMaterialControl
